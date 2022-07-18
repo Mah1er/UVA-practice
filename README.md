@@ -1,2 +1,2 @@
 # UVA-practice
-This is the code for the UVA exercises in the book of Liu Rujia. And I have added some comments for learning purposes
+The code is divided into two parts. The first part is the implementation of some basic data structures, and the second part is the solution of some UVa exercises whose main source is the purple book of Rujia Liu.I have added some comments to the solutions he provided and made some modifications to his source code.
