@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "deque": "cpp",
+        "memory": "cpp",
+        "string": "cpp",
+        "tuple": "cpp",
+        "xlocnum": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
+    }
+}
