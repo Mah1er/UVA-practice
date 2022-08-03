@@ -57,7 +57,7 @@ bool input()
         return false;
     cin >> startNode.r >> startNode.c >> tmp >> finalNode.r >> finalNode.c;
 
-    situation.dir = dir_id(tmp);
+    situation.dir = tmp;
     situation.r = startNode.r + dr[situation.dir];
     situation.c = startNode.c + dc[situation.dir];
 
