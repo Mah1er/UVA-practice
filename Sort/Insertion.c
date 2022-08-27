@@ -1,6 +1,6 @@
 void InsertionSort(int *arr,int size)
 {
-    for(int i=0;i<size-1;i++)
+    for(int i=0;i<size;i++)
     {
         int tmp;
         for(int j=i;j>0;j--)
