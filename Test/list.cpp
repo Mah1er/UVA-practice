@@ -12,8 +12,8 @@ int IsEmpty(List L);
 int IsLast(Position P, List L);
 Position Find(ElementType X,List L);
 void Delete(ElementType X,List L);
-Position FindPrevious(Position P,List L);
-void Insert(ElementType X,List L);
+Position FindPrevious(ElementType X,List L);
+void Insert(ElementType X,List L,Position P);
 
 
 struct Node
@@ -37,8 +37,10 @@ Position Find(ElementType X,List L)
 {
     Position Tmp;
     Tmp=(Position)malloc(sizeof(struct Node));
-    if(Tmp==NULL)
-        throw "Out of space!!!";
+   
+
+    // if(Tmp==NULL)
+    //     throw "Out of space!!!";
 
     //能直接赋值，不需要分配内存
 
@@ -51,3 +53,33 @@ Position Find(ElementType X,List L)
 }
 
 
+// If X is not found,return the last
+
+Position FindPrevious(ElementType X,List L)
+{
+    Position P=L;
+
+    while (P->Next!=NULL && P->Element!=X)
+        P=P->Next;
+    return P;
+
+}
+
+void Delete(ElementType X,List L)
+{
+    Position Tmp,PreTmp;
+    PreTmp = FindPrevious(X,L);
+
+    //notice IsLast : If X is not found,return the last
+    if(!IsLast(PreTmp,L))
+    {
+        Tmp=PreTmp->Next;
+        PreTmp->Next=Tmp->Next;
+        free(Tmp);
+    }
+}
+
+void Insert(ElementType X,List L,Position P)
+{
+    
+}
