@@ -92,6 +92,12 @@ void Push(ElementType X,Deque Q)
     if(IsFull(Q))
         throw "Deque Full";
 
+    else if (IsEmpty(Q))
+    {
+        Q->Array[Q->Front]=X;
+        Q->Size++;    
+    }
+    
     else
     {
         Q->Front=Prev(Q->Front,Q);
@@ -108,7 +114,7 @@ ElementType Pop(Deque Q)
 {
     ElementType X;
 
-    if(IsEmpty)
+    if(IsEmpty(Q))
         throw "Deque Empty";
 
     else
@@ -128,6 +134,12 @@ void Inject(ElementType X,Deque Q)
     if(IsFull(Q))
         throw "Deque Full";
 
+    else if (IsEmpty(Q))
+    {
+        Q->Array[Q->Rear]=X;
+        Q->Size++;
+    }
+    
     else
     {
         Q->Rear=Succ(Q->Rear,Q);
@@ -144,7 +156,7 @@ ElementType Eject(Deque Q)
 {
     ElementType X;
 
-    if(IsEmpty)
+    if(IsEmpty(Q))
         throw "Deque Empty";
     else
     {
@@ -156,3 +168,45 @@ ElementType Eject(Deque Q)
 }
 
 
+
+void PrintList(Deque Q)
+{
+    for(int i=0;i<Q->Capacity;i++)
+        printf("%d ",Q->Array[i]);
+    printf("\n");
+
+    printf("front:%d rear:%d size:%d\n",Q->Front,Q->Rear,Q->Size);
+
+    return;
+}
+
+
+void test()
+{
+    Deque Q=CreateDeque(10);
+
+    for(int i=0;i<10;i++)
+        Q->Array[i]=0;
+    
+    Push(1,Q);
+    Push(2,Q);
+    Push(3,Q);
+    
+    PrintList(Q);
+    
+    Pop(Q);Push(4,Q);
+    PrintList(Q);
+
+    Eject(Q);
+    PrintList(Q);
+
+    Inject(5,Q);
+    PrintList(Q);
+
+}
+
+int main()
+{
+    test();
+    return 0;
+}
