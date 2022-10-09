@@ -1,3 +1,7 @@
+// 1. 栈的链表实现
+// 2. 可以模拟栈
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
